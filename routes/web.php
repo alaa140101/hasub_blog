@@ -42,7 +42,8 @@ Route::post('/posts', function() {
 });
 
 Route::get('/posts', function() {
-    $posts = DB::table('posts')->get();
+    // $posts = DB::table('posts')->latest()->get();
+    $posts = DB::table('posts')->orderBy('created_at', 'desc')->get();
     return view('posts.index', compact('posts'));
 });
 
