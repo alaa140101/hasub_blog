@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -41,13 +42,18 @@ Route::post('/posts', function() {
     return back();
 });
 
+// Route::get('/posts', function() {
+//     // $posts = DB::table('posts')->latest()->get();
+//     $posts = DB::table('posts')->orderBy('created_at', 'desc')->get();
+//     return view('posts.index', compact('posts'));
+// });
 Route::get('/posts', function() {
-    // $posts = DB::table('posts')->latest()->get();
-    $posts = DB::table('posts')->orderBy('created_at', 'desc')->get();
+    $posts = Post::all();
     return view('posts.index', compact('posts'));
 });
 
 Route::get('/posts/{id}', function($id) {
-    $post = DB::table('posts')->find($id);
+    // $post = DB::table('posts')->find($id);
+    $post = Post::findOrFail($id);
     return view('posts.show', compact('post'));
 });
