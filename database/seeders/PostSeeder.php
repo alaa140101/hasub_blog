@@ -21,6 +21,6 @@ class PostSeeder extends Seeder
         //     'body' => Str::random(300),
         //     'author' => Str::random(10)
         // ]);
-        Post::factory()->count(20)->create();
+        Post::factory()->count(20)->hasComments(4)->create();
     }
 }
