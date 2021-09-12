@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Postscontroller;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -26,35 +27,6 @@ Route::get('/users/{name}', function($name){
     return view('userpage', compact('name'));
 });
 
-Route::view('/posts/create', 'posts.create');
-
 Route::view('/aboutus', 'about');
 
-Route::post('/posts', function() {
-    DB::table('posts')->insert([
-        'title' => request('title'),
-        'body' => request('body'),
-        'author' => request('author'),
-        'created_at' => Carbon::now(),
-        'updated_at' => Carbon::now()
-    ]);
-
-    return back();
-});
-
-// Route::get('/posts', function() {
-//     // $posts = DB::table('posts')->latest()->get();
-//     $posts = DB::table('posts')->orderBy('created_at', 'desc')->get();
-//     return view('posts.index', compact('posts'));
-// });
-Route::get('/posts', function() {
-    $posts = Post::all();
-    return view('posts.index', compact('posts'));
-});
-
-Route::get('/posts/{id}', function($id) {
-    // $post = DB::table('posts')->find($id);
-    $post = Post::findOrFail($id);
-    $comments = $post->comments()->where('approved', 1)->get();
-    return view('posts.show', compact(['post', 'comments']));
-});
+Route::resource('posts', Postscontroller::class);
