@@ -1,6 +1,4 @@
-@extends('posts.layout')
-
-@section('content')
+<x-layout>
     
 <main class="container">
   <div class="row g-5">
@@ -64,4 +62,4 @@
 
 </main>
 
-@endsection
+</x-layout>
