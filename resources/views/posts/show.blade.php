@@ -1,8 +1,12 @@
 @section('title', $post->title)
 
 <x-layout>
-    <x-post :post="$post"/>
-    <x-comment :comments="$comments"/>      
+    <x-post :post="$post"/>    
+    <x-comment :comments="$comments"/> 
+    <div class="mb-5">
+      <h4>أضف تعليقك</h4>
+      <x-createComment :post="$post"/>     
+    </div>
             <nav class="blog-pagination" aria-label="Pagination">
               <a class="btn btn-outline-primary" href="#">Older</a>
               <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
@@ -46,6 +50,5 @@
             </div>
           </div>
         </div>
-      
       </main>
 </x-layout>
