@@ -31,6 +31,8 @@ Route::get('/users/{name}', function($name){
 
 Route::view('/aboutus', 'about');
 
+// Route::view('/posts/create', 'posts.create');
+
 Route::resource('posts', Postscontroller::class);
 
 

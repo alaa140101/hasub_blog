@@ -1,7 +1,8 @@
 @section('title', $post->title)
 
 <x-layout>
-    <x-post :post="$post"/>    
+    <x-post :post="$post"/> 
+    <a href="/posts/{{$post->id}}/edit" class="btn btn-outline-warning">تعديل المقالة</a>   
     <x-comment :comments="$comments"/> 
     <div class="mb-5">
       <h4>أضف تعليقك</h4>
