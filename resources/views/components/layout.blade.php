@@ -9,12 +9,11 @@
     <meta name="generator" content="Hugo 0.84.0">
     <title>@yield('title')</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
 
 
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -151,8 +150,9 @@ h1, h2, h3, h4, h5, h6 {
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="blog.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
   </head>
-  <body>
+  <body class="rtl">
 
 <div class="container">
   <header class="blog-header py-3">

@@ -25,7 +25,7 @@ class Postscontroller extends Controller
      */
     public function create()
     {
-        return view('/posts/create', 'posts.create');
+        return view('posts.create');
     }
 
     /**
@@ -41,7 +41,7 @@ class Postscontroller extends Controller
             'body' => request('body'),
             'author' => request('author')
         ]);
-    
+
         return redirect('/posts');
     }
 
