@@ -64,9 +64,9 @@ class Postscontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -76,9 +76,15 @@ class Postscontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(POST $post)
     {
-        //
+        $post->update([
+            'title' => request('title'),
+            'body' => request('body'),
+            'author' => request('author')
+        ]);
+
+        return redirect('/posts/'. $post->id);
     }
 
     /**

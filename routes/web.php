@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Postscontroller;
+use App\Http\Controllers\CommentsController;
 use App\Models\Post;
+// use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -29,4 +31,10 @@ Route::get('/users/{name}', function($name){
 
 Route::view('/aboutus', 'about');
 
+// Route::view('/posts/create', 'posts.create');
+
 Route::resource('posts', Postscontroller::class);
+
+
+
+Route::post('/posts/{post}/comments', [CommentsController::class, 'store']);
